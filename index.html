@@ -1,76 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>pJUST TEST</title>
-
+    <title>apples support</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
     <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
+        /* Variables */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
 
-    header {
-        background-color: #3e22b9;
-        text-align: center;
-        padding: 20px;
-    }
+        /* Header */
+        .navbar {
+            background-color: var(--dark-color);
+        }
 
-    h1 {
-        color: #333;
-    }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
 
-    .blog-post {
-        padding: 20px;
-        border-bottom: 1px solid #ddd;
-    }
+        .navbar-nav .nav-link {
+            color: var(--light-color);
+        }
 
-    .comments {
-        padding: 20px;
-    }
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+        }
 
-    .comment {
-        margin-bottom: 10px;
-    }
+        /* Banner */
+        .banner {
+            background-image: url("https://source.unsplash.com/1600x900/?digital,marketing");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    footer {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 10px;
-    }</style>
+        .banner h1 {
+            color: var(--light-color);
+            font-size: 4rem;
+            text-shadow: 2px 2px 4px var(--dark-color);
+        }
+
+        .banner p {
+            color: var(--light-color);
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 2px var(--dark-color);
+        }
+
+        .banner .btn {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            font-size: 1.2rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0;
+        }
+
+        .banner .btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+        }
+
+        /* Services */
+        .services {
+            padding: 4rem 0;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .services .card {
+            border: none;
+            box-shadow: 0 4px 8px var(--secondary-color);
+        }
+
+        .services .card:hover {
+            transform: scale(1.05);
+            transition: 0.3s;
+        }
+
+        .services .card-body {
+            text-align: center;
+        }
+
+        .services .card-title {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .services .card-text {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Process */
+        .process {
+            padding: 4rem 0;
+            background-color: var(--light-color);
+        }
+
+        .process h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .process .row {
+            align-items: center;
+        }
+
+        .process .col-md-6 {
+            padding: 2rem;
+        }
+
+        .process .video {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .process .list-group-item {
+            font-size: 1.2rem;
+            border: none;
+        }
+
+        .process .list-group-item::before {
+            content: "\2713\0020";
+            color: var(--primary-color);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 0;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonials .carousel-item {
+            text-align: center;
+        }
+
+        .testimonials .img-fluid {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .testimonials .blockquote {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonials .carousel-indicators li {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 4rem 0;
+            background-color: var(--light-color);
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact .form-control {
+            border-radius: 0;
+        }
+
+        .contact .btn {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            font-size: 1.2rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0;
+        }
+
+        .contact .btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            padding: 2rem 0;
+        }
+
+        .footer .social-icons a {
+            color: var(--light-color);
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+        }
+
+        .footer .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer p {
+            color: var(--light-color);
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .banner h1 {
+                font-size: 3rem;
+            }
+
+            .banner p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 
-
 <body>
-    <header>
-        <h1>Customer Care line</h1>
-    </header>
-
-    <section class="blog-post">
-        <h2>How to Improve Customer Satisfaction</h2>
-       <p>One of the best ways to stay current with trends and customer needs is by following customer service blogs. Reading about the tools and techniques that other companies are using to provide excellent experiences helps inform your team and strategy on doing the same.</p>
- <br><br><br>
- <p>1. Bill Quiseng
-    Bill Quiseng is a well-known influencer in the customer service space. Beyond producing written content, he also has a very active Twitter feed and frequently hosts podcasts. Bill's experience is unique, at least in the tech world, in that he started his career in luxury resorts and hotel management.
-
-    Similar to Ritz-Carlton's perspective on customer service, Bill Quiseng brings a hyper-defined focus to customer experience. His blog reflects that throughout and offers a ton of different ways for readers to engage.</p>
-    </section>
-
-    <section id="comments" class="comments">
-        <h2>Comments</h2>
-        <div class="comment">
-            <p>John Doe:</p>
-            <p>Great article! Thanks for the tips.</p>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">apples support</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#banner">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#process">Process</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <!-- Add more comments here -->
+    </nav>
+    <!-- Banner -->
+    <section id="banner" class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1>Happy Customer Relation</h1>
+                   <p>These relationships lead to happy customers, which is different than just making your customers happier.
+
+                    In this post, let's explore this difference and explain a few ways your business can produce happy customers. Then, we'll list some phrases you can use to create delightful interactions with your marketing, sales, and customer service teams. </p>
+                    <a href="#contact" class="btn">Get a free quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="https://source.unsplash.com/500x300/?seo" alt="SEO" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Way to provide apples support</h3>
+                           <p>Making your customers happier is different than creating truly happy customers. Happy customers are people who value your brand beyond the initial purchase. They trust that your company is aligned with their needs and is committed to helping them achieve their long-term goals. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="https://source.unsplash.com/500x300/?seo" alt="SEO" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">. Create a customer loyalty program.</h3>
+                          <p>One of the best ways to drive value outside the buying experience is with a customer loyalty program. These initiatives foster a mutually-beneficial relationship between your business and the customer, where the customer has an incentive for engaging with your brand. This promotes a relationship where both the customer and your business grow and develop together. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 pal online help</p>
-    </footer>
 </body>
+
 </html>
